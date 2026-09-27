@@ -362,10 +362,7 @@ function renderHome() {
     <div class="parts-grid">${BOOK.map(p => { const d = p.scripts.filter(s => DONE.has(s.num)).length; return `<button data-part="${p.part}" data-script="${p.scripts.find(s => !DONE.has(s.num))?.num || p.scripts[0].num}"><span class="pn">Part ${p.part}</span><strong>${esc(p.title)}</strong><span class="pd">${esc(PART_DESC[p.part] || "")}</span><span class="pc">${p.scripts.length} scripts${d ? `, ${d} done` : ""}</span></button>`; }).join("")}</div>
     <h3 class="sec">All ${ALL.length} scripts</h3>
     <div class="toc">${BOOK.map(p => `<section data-part="${p.part}"><h4>Part ${p.part}: ${esc(p.title)}</h4><ol>${p.scripts.map(s => `<li><button data-script="${s.num}"><span>${s.num}</span><span>${esc(s.title)}</span><span class="ck">${DONE.has(s.num) ? "✓" : ""}</span></button></li>`).join("")}</ol></section>`).join("")}</div>
-    <div class="notice" id="voices-help">
-      <h3>Get a better voice</h3>
-      <p>The computer voices come from your device, so they sound different on every phone and computer. The best free voices are Apple's “Premium” and “Enhanced” voices. To add them on an iPhone or iPad, go to Settings, then Accessibility, then Read &amp; Speak (or Spoken Content), then Voices, then English, and download a Premium or Enhanced voice such as Ava, Zoe, Evan, or Nathan. On a Mac, it's in System Settings, then Accessibility, then Read &amp; Speak (or Spoken Content), then System Voice, then Manage Voices. Then reload this page and choose the voice marked ★. On Windows, use Microsoft Edge: its voices marked “natural” sound the most human.</p>
-    </div>
+    
     <div class="notice">
       <h3>The people and courses are fictional</h3>
       <p>The professors, students, assignments, and grades are invented for listening practice. Every university has its own policies on extensions, appeals, academic integrity, and AI. Always check your own syllabus and your university's official rules.</p>
@@ -443,7 +440,7 @@ function playerHTML(opts) {
       </div>
       <div class="track"><i id="trk"></i></div>
     </div>
-    <p class="voice-note">These are computer voices for practice${dlg ? ", one for the professor and one for the student" : ""}. Voices marked ★ are the high-quality ones on this device. If they all sound robotic, see “Get a better voice” on the home page.</p>`;
+    <p class="voice-note">These are computer voices for practice${dlg ? ", one for the professor and one for the student" : ""}. Voices marked ★ are the high-quality ones on this device.</p>`;
 }
 
 /* ---------- speech engine ---------- */
