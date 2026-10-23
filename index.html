@@ -367,7 +367,7 @@ function renderNav(filter = "") {
   const f = filter.trim().toLowerCase();
   const cur = location.hash.startsWith("#script-") ? +location.hash.slice(8) : null;
   const curPart = cur ? (byNum(cur) || {}).part : null;
-  let html = `<button class="home-link" data-home>How the lab works</button><a class="home-link drill-link" href="https://senseicoach.github.io/NETWORKING-LAB/#alphabet" target="_blank" rel="noopener">📞 Phone Alphabet drill ↗</a>`, any = false;
+  let html = `<button class="home-link" data-home>How the lab works</button><a class="home-link drill-link" href="https://executiveclass.ca/NETWORKING-LAB/#alphabet" target="_blank" rel="noopener">📞 Phone Alphabet drill ↗</a>`, any = false;
   BOOK.forEach(p => {
     const items = p.scripts.filter(s => !f || (s.title + " " + p.title + " " + fullText(s)).toLowerCase().includes(f));
     if (!items.length) return; any = true;
@@ -407,7 +407,7 @@ function renderHome() {
       <p class="pn">New · Part 10</p>
       <h3>Details That Matter: codes, rooms, dates and deadlines</h3>
       <p>Professors often give the most important information in the first or last two minutes of class: a room change, an exam time, the pages to read, a new deadline. These twelve short announcements and conversations train you to catch those details and write them down correctly.</p>
-      <div class="actions"><button class="btn" data-script="76">Go to the first script</button><a class="btn secondary" href="https://senseicoach.github.io/NETWORKING-LAB/#alphabet" target="_blank" rel="noopener">Phone Alphabet drill ↗</a></div>
+      <div class="actions"><button class="btn" data-script="76">Go to the first script</button><a class="btn secondary" href="https://executiveclass.ca/NETWORKING-LAB/#alphabet" target="_blank" rel="noopener">Phone Alphabet drill ↗</a></div>
     </div>
     <h3 class="sec">Six rounds for every script</h3>
     <p class="sub">Do them in order. Most students need 20 to 30 minutes per script.</p>
@@ -659,7 +659,7 @@ function renderPanel(s) {
     <div class="field" ${s.D ? "hidden" : ""}><label for="gist">Your answers</label><textarea id="gist" class="short">${esc(ST.gist)}</textarea></div>${nextRow(k)}`;
   if (k === 1) P.innerHTML = `<h3>Round 2: Transcribe</h3>
     <p class="hint">Play one sentence at a time and write exactly what you hear. Replay a sentence as many times as you need. If you can't hear a word, leave a space and keep going.</p>
-    ${s.part === 10 ? `<div class="spelltip"><b>Tip:</b> write course codes and rooms the way they look on paper (ECON 101, room 2B-115), times with numbers (6:30), and emails the way you would type them. Spelled letters can go with hyphens (N-G-U-Y-E-N). For extra practice with letters and numbers, try the <a href="https://senseicoach.github.io/NETWORKING-LAB/#alphabet" target="_blank" rel="noopener">Phone Alphabet drill</a>.</div>` : ""}${playerHTML({ lines: true })}${dialogueHTML(s, false)}${answerBox}${nextRow(k)}`;
+    ${s.part === 10 ? `<div class="spelltip"><b>Tip:</b> write course codes and rooms the way they look on paper (ECON 101, room 2B-115), times with numbers (6:30), and emails the way you would type them. Spelled letters can go with hyphens (N-G-U-Y-E-N). For extra practice with letters and numbers, try the <a href="https://executiveclass.ca/NETWORKING-LAB/#alphabet" target="_blank" rel="noopener">Phone Alphabet drill</a>.</div>` : ""}${playerHTML({ lines: true })}${dialogueHTML(s, false)}${answerBox}${nextRow(k)}`;
   if (k === 2) P.innerHTML = `<h3>Round 3: Listen again and fix</h3>
     <p class="hint">Play the whole script from the beginning and follow your transcription. Fix anything you're unsure about. Listen closely for the small words: <i>a, the, to, of, it's, don't, that</i>.</p>
     ${playerHTML()}${answerBox}${nextRow(k)}`;
