@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>University Listening Lab | Executive Class</title>
+<meta name="description" content="Aulas, horário de atendimento, trabalhos em grupo e os avisos dos professores. Gratuito, no seu ritmo.">
+<link rel="canonical" href="https://executiveclass.ca/UNIVERSITY-LISTENING-LAB/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Executive Class">
 <meta property="og:locale" content="pt_BR">
@@ -302,16 +304,15 @@ const PART_DESC = {
   9: "Case briefs, legal research, and a final independent project.",
   10: "Course codes, room changes, exam times, deadlines and emails: the details you have to write down."
 };
-const TEACHER_EMAIL = "executiveclass.ca@gmail.com";
 /* ===== YOUR RECORDINGS =====================================================
    Put MP3 files in a folder called "audio" beside this page, named by script
-   number: audio/Script-01.mp3, audio/Script-02.mp3 ... audio/Script-75.mp3.
+   number: audio/Script-01.mp3, audio/Script-02.mp3 ... audio/Script-87.mp3.
    To host them elsewhere, put the full web address here instead, e.g.
    const AUDIO_BASE = "https://executiveclass.ca/university-audio/";
    Scripts with no recording use the two computer voices automatically.     */
 /* ===== RECORDINGS ===========================================================
    MP3 files live in the "audio" folder beside this page, named by script
-   number: audio/Script-01.mp3 ... audio/Script-75.mp3. Each script in BOOK has
+   number: audio/Script-01.mp3 ... audio/Script-87.mp3. Each script in BOOK has
    "t": the start and end time of every sentence, so students can replay one
    sentence at a time and follow the highlighted text in sync with the
    recording. If a recording is missing, the lab falls back to device voices. */
@@ -407,7 +408,7 @@ function renderHome() {
   $("#view").innerHTML = `<section>
     <div class="hero">
       <h2>Hear how professors really talk</h2>
-      <p>Seventy-five short scenes from Canadian university life: a professor explaining an assignment, a student asking about a grade, a nursing team planning a presentation. You'll hear the phrases professors actually use, like “develop this,” “be more specific,” and “that's too general,” at a natural pace.</p>
+      <p>Eighty-seven short scenes from Canadian university life: a professor explaining an assignment, a student asking about a grade, a nursing team planning a presentation. You'll hear the phrases professors actually use, like “develop this,” “be more specific,” and “that's too general,” at a natural pace.</p>
       <p>${ALL.filter(s => s.kind === "lecture").length} scripts are short lectures. ${nDlg} are conversations, with a different voice for the professor and the student.</p>
       <div class="exchange dlg" data-part="1">
         <div class="turn S"><div class="who">Student</div><div class="say">When you say we should “discuss the implications,” I'm not sure what you mean.</div></div>
@@ -742,16 +743,15 @@ function showResult(s) {
     ${acad.length ? `<p class="smalls"><b>Longer academic words to review:</b> ${acad.map(esc).join(", ")}</p>` : ""}
     <div class="sendbox">
       <div class="field"><label for="sname">Your name</label><input id="sname" value="${esc(ST.name || "")}" autocomplete="name"></div>
-      <div class="actions"><button class="btn" id="send">Email my results to Ron</button><button class="btn secondary" id="copy">Copy my results</button></div>
-      <p>This opens your email app with your results already written. Nothing is sent until you press send. If your email app doesn't open, copy your results and paste them into an email to ${TEACHER_EMAIL}.</p>
+      <div class="actions"><button class="btn" id="copy">Copy my results</button></div>
+      <p>Copy your results to keep them, or to share with your teacher.</p>
       <p class="status" id="status" role="status"></p>
     </div></div>`;
   $("#sname").oninput = e => { ST.name = e.target.value; store.set("name", ST.name); };
-  $("#send").onclick = () => { location.href = `mailto:${TEACHER_EMAIL}?subject=${encodeURIComponent(`University Listening Lab: Script ${s.num}, ${s.title}`)}&body=${encodeURIComponent(resultText(s))}`; };
   $("#copy").onclick = async () => {
     const t = resultText(s);
     try { await navigator.clipboard.writeText(t); } catch { const ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
-    $("#status").textContent = "Copied. Paste it into an email or a message to Ron.";
+    $("#status").textContent = "Copied. Paste it into a message to your teacher.";
   };
 }
 function resultText(s) {
